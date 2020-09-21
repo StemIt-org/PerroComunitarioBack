@@ -5,7 +5,7 @@ const {register, login} = require("../methods/users/users.controller");
 const {subirPerro,borraPerrito,actualizarPerro} = require("../methods/perritos/perrito.controller");
 const { agarrarform, agarrarFormPerro} = require("../methods/formulario/formulario.controller");
 const {checkToken} = require('../../auth/tokenvalidation');
-const {subirNoticia,borrarNotcia,actualizarNoticia} = require("../methods/noticias/noticias.controller");
+const {subirNoticia,borrarNoticia,actualizarNoticia} = require("../methods/noticias/noticias.controller");
 
 
 
@@ -21,7 +21,7 @@ router.get("/verFormularioPerro/:nombre_perro", checkToken, agarrarFormPerro);
 router.post("/registrarse", register);
 router.post("/login", login);
 
-router.post("/borrarNoticia/:title", checkToken, borrarNotcia);
+router.post("/borrarNoticia/:title", checkToken, borrarNoticia);
 router.post("/subirNoticia", checkToken, subirNoticia);
 router.post("/actualizarNoticia", checkToken, actualizarNoticia);
 
