@@ -3,12 +3,10 @@ require("dotenv").config();
 
 const {register, login} = require("../methods/users/users.controller");
 const {subirPerro,borraPerrito,actualizarPerro} = require("../methods/perritos/perrito.controller");
-<<<<<<< HEAD
 const { agarrarform, agarrarFormPerro} = require("../methods/formulario/formulario.controller");
-=======
-const { agarrarform,agarrarFormPerro} = require("../methods/formulario/formulario.controller");
->>>>>>> cba16d5ceba9517e4f69641cd8fbdb88a102d528
 const {checkToken} = require('../../auth/tokenvalidation');
+const {subirNoticia,borrarNotcia,actualizarNoticia} = require("../methods/noticias/noticias.controller");
+
 
 
 
@@ -22,5 +20,9 @@ router.get("/verFormularioPerro/:nombre_perro", checkToken, agarrarFormPerro);
 
 router.post("/registrarse", register);
 router.post("/login", login);
+
+router.post("/borrarNoticia/:title", checkToken, borrarNotcia);
+router.post("/subirNoticia", checkToken, subirNoticia);
+router.post("/actualizarNoticia", checkToken, actualizarNoticia);
 
 module.exports = router;
