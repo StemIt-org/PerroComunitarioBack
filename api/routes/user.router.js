@@ -3,7 +3,7 @@ require("dotenv").config();
 
 
 const {mostrarPerritos,agarrarPerrito} = require("../methods/perritos/perrito.controller");
-const { subirForm} = require(".../methods/formulario/formulario.controller");
+const { subirForm } = require("../methods/formulario/formulario.controller");
 
 
 router.post("/mostrarPerros", mostrarPerritos);

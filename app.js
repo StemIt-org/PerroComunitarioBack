@@ -3,6 +3,7 @@ const express = require("express");
 const app = express();
 app.use(express.json());
 const adminRouter = require("./api/routes/admin.router");
+const userRouter = require("./api/routes/user.router");
 const path = require('path');
 var bodyParser = require('body-parser');
 
@@ -25,10 +26,9 @@ app.use(function (req, res, next) {
     next();
   });
 
- 
-
 //uso las rutas para acceder a los métodos
 app.use("/admin", adminRouter);
+app.use("/user", userRouter);
 
 app.listen(process.env.APP_PORT, () => {
     console.log("Server corriendo en el puerto: ", process.env.APP_PORT);
