@@ -3,7 +3,7 @@ require("dotenv").config();
 
 const {register, login} = require("../methods/users/users.controller");
 const {subirPerro,borraPerrito,actualizarPerro} = require("../methods/perritos/perrito.controller");
-const { agarrarform,agarrarFormPerro} = require(".../methods/formulario/formulario.controller");
+const { agarrarform,agarrarFormPerro} = require("../methods/formulario/formulario.controller");
 const {checkToken} = require('../../auth/tokenvalidation');
 
 
