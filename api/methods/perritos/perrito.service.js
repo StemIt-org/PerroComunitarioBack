@@ -2,8 +2,9 @@ const pool = require("../../../config/database");
 
 module.exports = {
     subirPerro: (data, callback) => {
-        pool.query(`INSERT INTO perros (nombre,personalidad,ficha_medica,edad,tamaño,sexo,pelo,tiempo_ea,sociabilidad ) VALUES (?,?,?,?,?,?,?,?,?)`, 
+        pool.query(`INSERT INTO perros (imagen,nombre,personalidad,ficha_medica,edad,tamaño,sexo,pelo,tiempo_ea,sociabilidad ) VALUES (?,?,?,?,?,?,?,?,?)`, 
         [
+          data.imagen,
           data.nombre,
           data.personalidad,
           data.ficha_medica,
@@ -55,6 +56,7 @@ module.exports = {
     actualizarPerro: (data, callback) => {
         pool.query(`UPDATE perros SET nombre  = ?, personalidad = ?, edad=? , tamaño = ?, sexo =? , pelo=? , tiempo_ea = ? , sociaabilidad = ? WHERE name = ? `, 
         [
+            data.imagen,
             data.nombre,
             data.personalidad,
             data.ficha_medica,
