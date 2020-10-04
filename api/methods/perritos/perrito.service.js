@@ -28,10 +28,10 @@ module.exports = {
 
     },
 
-    agarrarPerrito: (perro, callback) => {
+    agarrarPerrito: (id_perro, callback) => {
        
-        pool.query(`SELECT * FROM perros WHERE nombre = ?`, 
-        [perro],
+        pool.query(`SELECT * FROM perros WHERE id_perro = ?`, 
+        [id_perro],
             (error, results, fields) => {
                 if (error) {
                     callback(error);

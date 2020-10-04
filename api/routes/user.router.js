@@ -8,7 +8,7 @@ const {mostrarNoticias} = require("../methods/noticias/noticias.controller");
 
 
 router.get("/mostrarPerros", mostrarPerritos);
-router.post("/agarrarPerros/:perro",agarrarPerrito);
+router.post("/agarrarPerros/:id_perro",agarrarPerrito);
 router.post("/completarFormulario", subirForm);
 router.get("/mostrarNoticias",mostrarNoticias);
 
