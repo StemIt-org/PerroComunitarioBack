@@ -40,16 +40,15 @@ module.exports = {
             }
         );
     },
-    mostrarPerritos: (data, callback) => {
+    mostrarPerritos: (callback) => {
        
         pool.query(`SELECT * FROM perros`,
-        [], 
             (error, results, fields) => 
             {
                 if (error) {
                     callback(error);
                 }
-                return callback(null, results[0]);
+                return callback(null, results);
             }
         );
     },
