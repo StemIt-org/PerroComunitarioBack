@@ -30,7 +30,7 @@ module.exports = {
 
     agarrarPerrito: (perro, callback) => {
        
-        pool.query(`SELECT * FROM perros WHERE name = ?`, 
+        pool.query(`SELECT * FROM perros WHERE nombre = ?`, 
         [perro],
             (error, results, fields) => {
                 if (error) {
