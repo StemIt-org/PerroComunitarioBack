@@ -80,7 +80,6 @@ module.exports = {
 
     mostrarPerritos: (req, res) => {
         
-        
         mostrarPerritos( (err, results) => {
             if (err) {
                 console.log(err);
