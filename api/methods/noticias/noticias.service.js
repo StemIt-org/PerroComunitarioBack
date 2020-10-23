@@ -39,7 +39,7 @@ module.exports = {
     actualizarNoticia : (data, callback) => {
         pool.query(`UPDATE noticias SET title  = ?, image = ?, subtitle =? , body = ?, date =?  WHERE title  = ? `, 
         [
-           data.title,
+          data.title,
           data.image,
           data.subtitle,
           data.body,

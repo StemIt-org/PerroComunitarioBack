@@ -40,7 +40,7 @@ router.post("/actualizarPerro", checkToken, actualizarPerro);
 
 router.get("/verFormulario/:nombre_apellido", checkToken, agarrarform);
 router.get("/verFormularioPerro/:nombre_perro", checkToken, agarrarFormPerro);
-
+router.get("/checkAdmin", checkToken);
 router.post("/registrarse", register);
 router.post("/login", login);
 
