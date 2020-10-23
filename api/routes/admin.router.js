@@ -3,7 +3,7 @@ const router = require("express").Router();
 require("dotenv").config();
 
 const {register, login} = require("../methods/users/users.controller");
-const {subirPerro,borraPerrito,actualizarPerro} = require("../methods/perritos/perrito.controller");
+const {borraPerrito,actualizarPerro} = require("../methods/perritos/perrito.controller");
 const { agarrarform, agarrarFormPerro} = require("../methods/formulario/formulario.controller");
 const {checkToken} = require('../../auth/tokenvalidation');
 const {subirNoticia,borrarNoticia,actualizarNoticia} = require("../methods/noticias/noticias.controller");
@@ -35,7 +35,7 @@ const upload = multer({
     }
   },
 });
-router.post("/subirPerro",checkToken,subirPerro)
+
 router.post("/eliminarPerro/:id_perro", checkToken, borraPerrito);
 router.post("/actualizarPerro", checkToken, actualizarPerro);
 
