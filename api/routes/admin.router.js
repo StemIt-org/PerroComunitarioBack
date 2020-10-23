@@ -1,3 +1,4 @@
+const { verify, decode } = require("jsonwebtoken");
 const router = require("express").Router();
 require("dotenv").config();
 
@@ -73,6 +74,12 @@ router.get(
             message: "Access denied! Unauthorized user",
         });
     }
+
+  (req) => {
+      token = req.headers.authorization.split(" ");
+      token = decode(token[1]);        
+      return token;
+  }
 }
 );
 
