@@ -35,7 +35,7 @@ const upload = multer({
   },
 });
 router.post("/subirPerro",checkToken,subirPerro)
-router.post("/eliminarPerro/:perro", checkToken, borraPerrito);
+router.post("/eliminarPerro/:id_perro", checkToken, borraPerrito);
 router.post("/actualizarPerro", checkToken, actualizarPerro);
 
 router.get("/verFormulario/:nombre_apellido", checkToken, agarrarform);
