@@ -81,7 +81,7 @@ module.exports = {
     },
     borraPerrito: (perro, callback) => {
        
-        pool.query(`DELETE * FROM perros WHERE name = ?`, 
+        pool.query(`DELETE * FROM perros WHERE nombre = ?`, 
         [perro],
             (error, results, fields) => {
                 if (error) {
