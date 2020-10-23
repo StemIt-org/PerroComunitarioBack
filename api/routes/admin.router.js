@@ -40,13 +40,41 @@ router.post("/actualizarPerro", checkToken, actualizarPerro);
 
 router.get("/verFormulario/:nombre_apellido", checkToken, agarrarform);
 router.get("/verFormularioPerro/:nombre_perro", checkToken, agarrarFormPerro);
-router.get("/checkAdmin", checkToken);
 router.post("/registrarse", register);
 router.post("/login", login);
 
 router.post("/borrarNoticia/:title", checkToken, borrarNoticia);
 router.post("/subirNoticia", checkToken, subirNoticia);
 router.post("/actualizarNoticia", checkToken, actualizarNoticia);
+
+router.get(
+  "/checkAdmin",
+  (req, res) => {
+
+    let token = req.get("authorization");
+    if (token) {
+        token = token.slice(7);
+        verify(token, process.env.JSONTOKEN_KEY, (err, decoded) => {
+            if (err) {
+                res.status(401).json({
+                    success: 0,
+                    message: "Invalid Token",
+                });
+            } else {
+              res.status(200).json({
+                success: 0,
+                message: "Admin válido",
+            });
+            }
+        });
+    } else {
+        res.status(403).json({
+            success: 0,
+            message: "Access denied! Unauthorized user",
+        });
+    }
+}
+);
 
 router.post(
     "/subirPerro",
