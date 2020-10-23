@@ -79,10 +79,10 @@ module.exports = {
         );
 
     },
-    borraPerrito: (perro, callback) => {
+    borraPerrito: (id_perro, callback) => {
        
-        pool.query(`DELETE * FROM perros WHERE nombre = ?`, 
-        [perro],
+        pool.query(`DELETE * FROM perros WHERE id_perro = ?`, 
+        [id_perro],
             (error, results, fields) => {
                 if (error) {
                     callback(error);

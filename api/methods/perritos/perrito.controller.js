@@ -22,9 +22,9 @@ module.exports = {
         });
     },
     borraPerrito: (req, res) => {
-        const perro = req.params.perro;
+        const id_perro = req.params.id_perro;
         
-        borraPerrito(perro, (err, results) => {
+        borraPerrito(id_perro, (err, results) => {
             if (err) {
                 console.log(err);
                 return res.status(500).json({
