@@ -91,8 +91,9 @@ router.post(
     (req, res) => {
 
       pool.query(
-        `INSERT INTO perros (nombre,personalidad,ficha_medica,edad,tamaño,sexo,pelo,tiempo_ea,sociabilidad) VALUES (?,?,?,?,?,?,?,?,?)`,
-        [
+        `INSERT INTO perros (imagen,nombre,personalidad,ficha_medica,edad,tamaño,sexo,pelo,tiempo_ea,sociabilidad) VALUES (?,?,?,?,?,?,?,?,?,?)`,
+        [ 
+           req.file.path,
            req.body.nombre,
            req.body.personalidad,
            req.body.ficha_medica,
@@ -110,32 +111,11 @@ router.post(
               message: error,
             });
           }
-  
-          if (req.file) {
-            pool.query(
-              `INSERT INTO perros (imagen) values(?)`,
-              [
-                req.file.path,              
-              ],
-              (error, results, fields) => {
-                if (error) {
-                  return res.status(500).json({
-                    success: 0,
-                    message: error,
-                  });
-                }
-  
-                return res.status(200).json({
-                  success: 1,
-                  data: results,
-                });
-              }
-            );
-          } else {
-            return res.status(200).json({
-              success: 1,
-              data: results,
-            });
+          else {
+            res.status(200).json({
+              success: 0,
+              message: "Admin válido",
+          });
           }
         }
       );
