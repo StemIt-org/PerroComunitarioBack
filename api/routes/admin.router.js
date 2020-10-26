@@ -36,6 +36,7 @@ const upload = multer({
   },
 });
 
+
 router.post("/eliminarPerro/:id_perro", checkToken, borraPerrito);
 router.post("/actualizarPerro", checkToken, actualizarPerro);
 
