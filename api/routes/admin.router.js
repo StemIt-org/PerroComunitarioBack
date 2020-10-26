@@ -114,7 +114,7 @@ router.post(
           else {
             res.status(200).json({
               success: 0,
-              message: "Admin válido",
+              message: "Perro agregado con éxito",
           });
           }
         }
