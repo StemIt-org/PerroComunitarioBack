@@ -1,7 +1,7 @@
 const { verify, decode } = require("jsonwebtoken");
 const router = require("express").Router();
 require("dotenv").config();
-
+const pool = require("../../config/database");
 const {register, login} = require("../methods/users/users.controller");
 const {borraPerrito,actualizarPerro} = require("../methods/perritos/perrito.controller");
 const { agarrarform, agarrarFormPerro} = require("../methods/formulario/formulario.controller");
