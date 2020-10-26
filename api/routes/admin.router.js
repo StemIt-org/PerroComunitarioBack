@@ -93,15 +93,15 @@ router.post(
       pool.query(
         `INSERT INTO perros (nombre,personalidad,ficha_medica,edad,tamaño,sexo,pelo,tiempo_ea,sociabilidad) VALUES (?,?,?,?,?,?,?,?,?)`,
         [
-           req.nombre,
-           req.personalidad,
-           req.ficha_medica,
-           req.edad,
-           req.tamaño,
-           req.sexo,
-           req.pelo,
-           req.tiempo_ea,
-           req.sociabilidad,
+           req.body.nombre,
+           req.body.personalidad,
+           req.body.ficha_medica,
+           req.body.edad,
+           req.body.tamaño,
+           req.body.sexo,
+           req.body.pelo,
+           req.body.tiempo_ea,
+           req.body.sociabilidad,
         ],
         (error, results, fields) => {
           if (error) {
