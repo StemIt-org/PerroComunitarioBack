@@ -69,4 +69,18 @@ module.exports = {
             }
         );
     },
+
+    mostrarNoticiaById: (id_noticias, callback) => {
+       
+        pool.query(`SELECT * FROM noticias WHERE id_noticias = ?`,
+        [id_noticias], 
+            (error, results, fields) => 
+            {
+                if (error) {
+                    callback(error);
+                }
+                return callback(null, results[0]);
+            }
+        );
+    },
 }

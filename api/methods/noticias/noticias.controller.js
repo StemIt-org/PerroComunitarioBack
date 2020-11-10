@@ -1,4 +1,4 @@
-const { subirNoticia, borrarNoticia,actualizarNoticia,mostrarNoticias} = require("./noticias.service");
+const { subirNoticia, borrarNoticia,actualizarNoticia,mostrarNoticias, mostrarNoticiaById} = require("./noticias.service");
 
 module.exports={
     subirNoticia: (req, res) => {
@@ -60,6 +60,24 @@ module.exports={
         
         
         mostrarNoticias( (err, results) => {
+            if (err) {
+                console.log(err);
+                return res.status(500).json({
+                    success: 0,
+                    message: "database connection error",
+                });
+            }
+            return res.status(200).json({
+                success: 1,
+                data: results,
+                message: "se ha realizado la operacion con exito"
+            });
+        });
+    },
+    mostrarNoticiaById: (req, res) => {
+        const id_noticias = req.params.id_noticias;
+        
+        mostrarNoticiaById(id_noticias, (err, results) => {
             if (err) {
                 console.log(err);
                 return res.status(500).json({
