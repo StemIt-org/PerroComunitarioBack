@@ -6,7 +6,7 @@ const {register, login} = require("../methods/users/users.controller");
 const {borraPerrito,actualizarPerro} = require("../methods/perritos/perrito.controller");
 const { agarrarform, agarrarFormPerro} = require("../methods/formulario/formulario.controller");
 const {checkToken} = require('../../auth/tokenvalidation');
-const {subirNoticia,borrarNoticia,actualizarNoticia} = require("../methods/noticias/noticias.controller");
+const {borrarNoticia,actualizarNoticia} = require("../methods/noticias/noticias.controller");
 
 const path = require("path");
 
@@ -46,7 +46,38 @@ router.post("/registrarse", register);
 router.post("/login", login);
 
 router.post("/borrarNoticia/:title", checkToken, borrarNoticia);
-router.post("/subirNoticia", checkToken, subirNoticia);
+router.post(
+  "/subirNoticia",
+  checkToken,
+  upload.single("filee"),
+  (req, res) => {
+
+    pool.query(
+      `INSERT INTO noticias (title,image,subtitle,body,date) VALUES (?,?,?,?,?)`,
+      [ 
+         req.body.title,
+         req.file.path,
+         req.body.subtitle,
+         req.body.body,
+         req.body.date
+      ],
+      (error, results, fields) => {
+        if (error) {
+          return res.status(500).json({
+            success: 0,
+            message: error,
+          });
+        }
+        else {
+          res.status(200).json({
+            success: 0,
+            message: "Perro agregado con éxito",
+        });
+        }
+      }
+    );
+  }
+);
 router.post("/actualizarNoticia", checkToken, actualizarNoticia);
 
 router.get(
