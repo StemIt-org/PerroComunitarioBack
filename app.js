@@ -14,7 +14,7 @@ app.use("/public", express.static(path.join(__dirname, 'public')));
 
 
 app.use(function (req, res, next) {
-    res.header("Access-Control-Allow-Origin", "*");
+    res.setHeader("Access-Control-Allow-Origin", "http://localhost:3000");
     res.header(
       "Access-Control-Allow-Methods",
       "GET,HEAD,OPTIONS,DELETE,POST,PUT"
@@ -30,6 +30,6 @@ app.use(function (req, res, next) {
 app.use("/admin", adminRouter);
 app.use("/user", userRouter);
 
-app.listen(process.env.APP_PORT, () => {
-    console.log("Server corriendo en el puerto: ", process.env.APP_PORT);
+app.listen(3001, () => {
+    console.log("Server corriendo en el puerto: ", 3001);
 });
