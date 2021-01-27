@@ -30,6 +30,6 @@ app.use(function (req, res, next) {
 app.use("/admin", adminRouter);
 app.use("/user", userRouter);
 
-app.listen(3001, () => {
-    console.log("Server corriendo en el puerto: ", 3001);
+app.listen(3000, () => {
+    console.log("Server corriendo en el puerto: ", 3000);
 });
