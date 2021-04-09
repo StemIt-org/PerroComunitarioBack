@@ -24,8 +24,8 @@ module.exports = {
     },
     borrarNoticia: (noticias, callback) => {
        
-        pool.query(`DELETE * FROM noticias WHERE title = ?`, 
-        [title],
+        pool.query(`DELETE FROM noticias WHERE id_noticias = ?`, 
+        [noticias],
             (error, results, fields) => {
                 if (error) {
                     callback(error);

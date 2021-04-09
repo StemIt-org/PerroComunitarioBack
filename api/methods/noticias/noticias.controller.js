@@ -20,8 +20,7 @@ module.exports={
         });
     },
     borrarNoticia: (req, res) => {
-        const title = req.params.title;
-        
+        const title = req.params.title;        
         borrarNoticia(title, (err, results) => {
             if (err) {
                 console.log(err);
